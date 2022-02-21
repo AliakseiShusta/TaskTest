@@ -9,10 +9,10 @@
   "author": "Aliaksei Shusta",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^9.4.1"
+    "cypress": "^9.4.1",
+    "cypress-xpath": "^1.6.2"
   },
   "dependencies": {
-    "cypress-plugin-snapshots": "^1.4.4",
-    "cypress-xpath": "^1.6.2"
+    "cypress-plugin-snapshots": "^1.4.4"
   }
 }

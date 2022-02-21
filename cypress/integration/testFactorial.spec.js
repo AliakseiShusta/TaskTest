@@ -1,5 +1,5 @@
+//// <reference types="cypress" />
 /// <reference types="cypress-xpath" />
-
 import { basePageF } from "../support/pages/basePageForFactorial";
 
 function factorial(n) {
@@ -191,7 +191,8 @@ describe('Негативное тестирование',() => {
         .clear()
     });
     it('Поиск элементов с помощью XPath', () => {
-        cy.get('//head/title[text()=”Factoriall”]')
+        cy.xpath('//head/title')
+        .should("[text()='Factoriall']")
     });
 });
 
