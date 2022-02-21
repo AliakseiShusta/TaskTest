@@ -1,0 +1,15 @@
+{
+    "imageConfig": {
+      "createDiffImage": true,
+      "threshold": 0.01,
+      "thresholdType": "percent"
+    },
+    "name": "custom image name",
+    "separator": "custom image separator",
+
+    "ignoreTestFiles" : [
+        "**/1-getting-started/*",
+        "**/2-advanced-examples/*",
+        "**/examples/*"
+    ]
+}
