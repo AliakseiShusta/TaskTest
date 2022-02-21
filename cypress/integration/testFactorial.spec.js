@@ -191,7 +191,7 @@ describe('Негативное тестирование',() => {
         .clear()
     });
     it('Поиск элементов с помощью XPath', () => {
-        cy.xpath('//head/title')
+        cy.xpath('//head')                          //не получается
         .should("[text()='Factoriall']")
     });
 });
