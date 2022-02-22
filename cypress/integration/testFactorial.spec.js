@@ -205,7 +205,7 @@ describe('Негативное тестирование',() => {
         .clear()
     });
     it('Поиск элементов с помощью XPath с ошибкой в тексте', () => {
-        cy.xpath('//head[contains(.,"Factorial")]')
+        cy.xpath("//head/title[text()='Factorial']")  // текстовая ошибка с двойной 'l' в слове Factorial
     });
 });
 
