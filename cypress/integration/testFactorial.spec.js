@@ -1,5 +1,6 @@
-//// <reference types="cypress" />
+
 /// <reference types="cypress-xpath" />
+
 import { basePageF } from "../support/pages/basePageForFactorial";
 
 function factorial(n) {
@@ -155,7 +156,20 @@ describe('Негативное тестирование',() => {
         cy.get('#resultDiv')
         .should('have.text', 'Please enter an integer')
     });
-
+    it('Проверка статус-кода', () => {
+        cy.request(
+            {
+                method: "POST",
+                url: "http://qainterview.pythonanywhere.com/factorial",
+                failOnStatusCode: false,
+                body: ("number", "-2")
+            }
+        ).then(
+            (response) => {
+                expect(response.status).to.eq(500)
+            }
+        )
+    });
     it('Факториал числа превышающее максимально расчитываемое приложением', () => {
         cy.get('[placeholder="Enter an integer"]')
         .clear()
@@ -190,9 +204,10 @@ describe('Негативное тестирование',() => {
         cy.get('[placeholder="Enter an integer"]')
         .clear()
     });
-    it('Поиск элементов с помощью XPath', () => {
-        cy.xpath('//head')                          //не получается
-        .should("[text()='Factoriall']")
+    it('Поиск элементов с помощью XPath с ошибкой в тексте', () => {
+        // cy.xpath('//head')                          //не получается
+        // .should("[text()='Factoriall']")
+        cy.xpath('//head[contains(.,"Factorial")]')
     });
 });
 
